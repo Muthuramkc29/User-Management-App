@@ -40,7 +40,7 @@ function Trash() {
   };
 
   return (
-    <div className="px-16 mt-10">
+    <div className="px-8 md:px-16 mt-10">
       <Link to="/">
         <Button
           label="Back"

@@ -10,7 +10,7 @@ function TrashCard({ handleTrashUserDelete, handleRestore }) {
   return (
     <div>
       {trashUsers.length === 0 ? (
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center mt-8">
           <div>Currently, No users added!</div>
         </div>
       ) : (

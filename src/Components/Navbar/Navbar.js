@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <div className="mx-auto px-12 flex justify-between items-center bg-green-700 text-white w-100 p-6">
+      <div className="mx-auto px-8 md:px-12 flex justify-between items-center bg-green-700 text-white w-100 p-6">
         <div className="flex">
           {/* <svg
             className="w-8 text-white"
@@ -21,9 +21,14 @@ function Navbar() {
             <rect x="14" y="1" width="7" height="6"></rect>
             <rect x="14" y="11" width="7" height="12"></rect>
           </svg> */}
-          <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
-            USERZ
-          </span>
+          <Link to="/">
+            <span
+              className="ml-2 text-xl font-bold tracking-wide text-white uppercase"
+              role="button"
+            >
+              USERZ
+            </span>
+          </Link>
         </div>
         <Link to="/trash">
           <h5 className="font-bold">Recycle Bin</h5>

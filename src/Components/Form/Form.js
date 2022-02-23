@@ -124,7 +124,7 @@ function Form({
             />
           </div>
           <button className="w-full bg-green-600 p-2 mt-2 text-white">
-            Create
+            {updateClick ? "Update" : "Create"}
           </button>
         </form>
       </Dialog>
