@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 function TrashCard({ handleTrashUserDelete, handleRestore }) {
   const trashUsers = useSelector((state) => state.user.trashUsers);
+  const restoreLoading = useSelector((state) => state.user.restoreLoading);
+  const deleteLoading = useSelector((state) => state.user.deleteLoading);
 
   return (
     <div>
@@ -46,6 +48,7 @@ function TrashCard({ handleTrashUserDelete, handleRestore }) {
                       label="Restore"
                       icon="pi pi-check"
                       className="p-button-raised p-button-success p-button-sm"
+                      loading={restoreLoading ? true : false}
                       onClick={() => {
                         handleRestore(user);
                       }}
@@ -53,8 +56,8 @@ function TrashCard({ handleTrashUserDelete, handleRestore }) {
                     <Button
                       label="Delete"
                       icon="pi pi-minus-circle"
-                      loading=""
                       className="p-button-raised p-button-danger p-button-sm"
+                      loading={deleteLoading ? true : false}
                       onClick={() => handleTrashUserDelete(user.id)}
                     />
                   </div>

@@ -2,7 +2,12 @@ import { Button } from "primereact/button";
 import { Link } from "react-router-dom";
 import React from "react";
 import TrashCard from "../Components/Card/TrashCard";
-import { setTrashUsers, setUsers } from "../redux/reducers/userReducers";
+import {
+  setDeleteLoading,
+  setRestoreLoading,
+  setTrashUsers,
+  setUsers,
+} from "../redux/reducers/userReducers";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../api/axiosConfig";
 
@@ -13,7 +18,9 @@ function Trash() {
   const dispatch = useDispatch();
 
   const handleTrashUserDelete = async (id) => {
+    dispatch(setDeleteLoading(true));
     await api.delete(`/recyclebin/${id}`);
+    dispatch(setDeleteLoading(false));
     const newUsers = trashUsers.filter((user) => {
       return user.id !== id;
     });
@@ -21,7 +28,9 @@ function Trash() {
   };
 
   const handleRestore = async (user) => {
+    dispatch(setRestoreLoading(true));
     await api.delete(`/recyclebin/${user.id}`);
+    dispatch(setRestoreLoading(false));
     const newUsers = trashUsers.filter((trashUser) => {
       return trashUser.id !== user.id;
     });

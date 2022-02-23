@@ -15,6 +15,8 @@ const userSlice = createSlice({
     loading: false,
     trashLoading: false,
     deleteLoading: false,
+    restoreLoading: false,
+    // trashDeleteLoading: false,
   },
   reducers: {
     getUsers: (state, action) => {
@@ -72,6 +74,10 @@ const userSlice = createSlice({
     setDeleteLoading: (state, action) => {
       state.deleteLoading = action.payload;
     },
+
+    setRestoreLoading: (state, action) => {
+      state.restoreLoading = action.payload;
+    },
   },
 });
 
@@ -90,6 +96,7 @@ export const {
   setLoading,
   setTrashLoading,
   setDeleteLoading,
+  setRestoreLoading,
 } = userSlice.actions;
 
 export default userSlice.reducer;
