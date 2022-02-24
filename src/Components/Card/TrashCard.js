@@ -10,8 +10,6 @@ function TrashCard({ handleTrashUserDelete, handleRestore }) {
   const restoreLoading = useSelector((state) => state.user.restoreLoading);
   const deleteLoading = useSelector((state) => state.user.deleteLoading);
 
-  const confirm = () => {};
-
   return (
     <div>
       {trashUsers.length === 0 ? (
