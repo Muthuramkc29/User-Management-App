@@ -1,16 +1,21 @@
 import { Button } from "primereact/button";
 import React from "react";
 import { useSelector } from "react-redux";
+// import { ConfirmDialog } from "primereact/confirmdialog"; // To use <ConfirmDialog> tag
+import { confirmDialog } from "primereact/confirmdialog"; // To use confirmDialog method
+import userIcon from "../../images/profile-builder.png";
 
 function TrashCard({ handleTrashUserDelete, handleRestore }) {
   const trashUsers = useSelector((state) => state.user.trashUsers);
   const restoreLoading = useSelector((state) => state.user.restoreLoading);
   const deleteLoading = useSelector((state) => state.user.deleteLoading);
 
+  const confirm = () => {};
+
   return (
     <div>
       {trashUsers.length === 0 ? (
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-10">
           <div>Currently, No users added!</div>
         </div>
       ) : (
@@ -20,8 +25,8 @@ function TrashCard({ handleTrashUserDelete, handleRestore }) {
               <div className="w-68 m-5">
                 <figure class="bg-slate-100 rounded-xl p-8 dark:bg-slate-800">
                   <img
-                    class="w-24 h-24 rounded-full mx-auto"
-                    src="https://tailwindcss.com/_next/static/media/sarah-dayan.a8ff3f1095a58085a82e3bb6aab12eb2.jpg"
+                    className="w-24 h-24 rounded-full border-4 border-green-600 mx-auto"
+                    src={userIcon}
                     alt=""
                     width="384"
                     height="512"
@@ -58,7 +63,20 @@ function TrashCard({ handleTrashUserDelete, handleRestore }) {
                       icon="pi pi-minus-circle"
                       className="p-button-raised p-button-danger p-button-sm"
                       loading={deleteLoading ? true : false}
-                      onClick={() => handleTrashUserDelete(user.id)}
+                      // onClick={() => handleTrashUserDelete(user.id)}
+                      onClick={() => {
+                        confirmDialog({
+                          message:
+                            "Are you sure you want to delete user permanently?",
+                          header: "Delete user permanently?",
+                          icon: "pi pi-trash",
+                          acceptClassName: "p-button-danger",
+                          breakpoints: { "960px": "75vw", "640px": "85vw" },
+                          style: { width: "40vw" },
+                          accept: () => handleTrashUserDelete(user.id),
+                          // reject: () => rejectFunc(),
+                        });
+                      }}
                     />
                   </div>
                 </figure>
