@@ -11,7 +11,7 @@ function Card({ handleDelete, handleUpdate, setModalOpen }) {
   return (
     <div>
       {users.length === 0 ? (
-        <div>Currently, No users added!</div>
+        <div className="mt-8 text-center">Currently, No users added!</div>
       ) : (
         <div className="flex justify-center items-center mt-5">
           <div className="flex flex-wrap justify-center items-center px-16">

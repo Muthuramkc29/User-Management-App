@@ -71,8 +71,9 @@ function Home() {
   };
 
   return (
-    <div className="text-center mt-10">
-      <div className="flex justify-end items-center mr-8 md:mr-12 text-white">
+    <div className="mt-10">
+      <div className="flex justify-end items-center px-8 md:px-16">
+        {/* <h1>User Cards</h1> */}
         <Button
           label="Create User"
           icon="pi pi-plus"
@@ -93,7 +94,7 @@ function Home() {
         />
       )}
       {loading ? (
-        <div>
+        <div className="text-center">
           <i
             className="pi pi-spin pi-spinner mt-4"
             style={{ fontSize: "2em", color: "green" }}
