@@ -108,7 +108,7 @@ function Form({
           <div>
             <label className="">Email</label>
             <input
-              type="text"
+              type="email"
               value={updateClick ? updateEmail : email}
               placeholder="Enter a email address"
               required
